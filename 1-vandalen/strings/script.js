@@ -7,13 +7,32 @@ window.onload = function(){
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
-	
+		try {
+			if(str.length == 0) {
+				console.log("str.length == 0");
+				throw(1);
+			}
+			var index;
+			var char;
+			var converted = "";
 
+			for(index = 0; index < str.length; index+=1 )
+			{
+				char = str.charAt(index);
+				if(char == 'a' ||char == 'A')
+					converted += '#';
+				else if(char.toLowerCase() == str.charAt(index))
+					converted += str.charAt(index).toUpperCase();
+				else if(char.toUpperCase() == str.charAt(index))
+					converted += str.charAt(index).toLowerCase();
 
-
-
-
-
+			}
+			console.log(converted);
+			return converted;
+		}
+		catch(e) {
+			alert("Strängen är tom!");
+		}
 	};
 	// ------------------------------------------------------------------------------
 
